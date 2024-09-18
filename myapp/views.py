@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from .models import Author,Book
+import json
+
 def orm(request):
     authors = Author.objects.all()
     books_with_author = Book.objects.select_related('author').all()
@@ -23,6 +25,49 @@ def specific_author(request,author_id):
     # breakpoint()
     # print(context)
     return render(request, 'user_id.html', context)
+
+
+def list_author(request):
+    return JsonResponse({"msg":True, "data":list()}) 
+
+def get_author(request, author_id):
+    pass 
+
+def create_author(request):
+    pass
+
+def update_author(request, author_id):
+    pass
+
+def patch_author(request, author_id):
+    pass
+
+def delete_author(request, author_id):
+    pass
+
+
+
+
+def list_book(request, book_id):
+    pass 
+
+def get_book(request, book_id):
+    pass 
+
+def create_book(request):
+    pass
+
+def update_book(request, book_id):
+    pass
+
+def patch_book(request, book_id):
+    pass
+
+def delete_book(request, author_id):
+    pass
+
+
+
 
 
 # author_by_name = Author.objects.get(name="J.K. Rowling")

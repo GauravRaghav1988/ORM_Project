@@ -22,3 +22,28 @@ urlpatterns = [
     path('', views.orm, name='orm'),
     path('author/<int:author_id>/', views.specific_author, name='specific_author'),  #find details for specific authhor
 ]  
+
+
+AUTHOR_URLS = [
+    path("list-author", views.list_author, name="list-author"),
+    path("get-author/<int:author_id>", views.get_author, name="get-author"),
+    path("create-author", views.create_author, name="create-author"),
+    path("update-author/<int:author_id>", views.update_author, name="update-author"),
+    path("patch-author/<int:author_id>", views.patch_author, name="patch-author"),
+    path("delete-author/<int:author_id>", views.delete_author, name="delete-author"),
+]
+
+
+
+BOOK_URLS = [
+    path("list-book", views.list_book, name="list-book"),
+    path("get-book/<int:book_id>", views.get_book, name="get-book"),
+    path("create-book", views.create_book, name="create-book"),
+    path("update-book/<int:book_id>", views.update_book, name="update-book"),
+    path("patch-book/<int:book_id>", views.patch_book, name="patch-book"),
+    path("delete-book/<int:book_id>", views.delete_book, name="delete-book"),
+]
+
+urlpatterns.extend(AUTHOR_URLS)
+urlpatterns.extend(BOOK_URLS)
+
